@@ -27,7 +27,9 @@ public class CruddemoApplication {
 
             // deleteStudent(studentDAO);
 
-            deleteAllStudents(studentDAO);
+            // deleteAllStudents(studentDAO);
+
+            createStudent(studentDAO);
         };
     }
 

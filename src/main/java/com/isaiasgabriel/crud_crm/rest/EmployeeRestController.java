@@ -2,6 +2,7 @@ package com.isaiasgabriel.crud_crm.rest;
 
 import com.isaiasgabriel.crud_crm.dao.EmployeeDAO;
 import com.isaiasgabriel.crud_crm.entity.Employee;
+import com.isaiasgabriel.crud_crm.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +14,16 @@ import java.util.List;
 @RequestMapping("/api")
 public class EmployeeRestController {
 
-    private EmployeeDAO employeeDAO;
+    private final EmployeeService employeeService;
 
-    // NOT RECOMMENDED SOLUTION: inject employee dao directly
-    // TODO: Refactor this solution later
     @Autowired
-    public EmployeeRestController(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     // Expose "/employees" endpoint
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
-        return  employeeDAO.findAll();
+        return  employeeService.findAll();
     }
 }

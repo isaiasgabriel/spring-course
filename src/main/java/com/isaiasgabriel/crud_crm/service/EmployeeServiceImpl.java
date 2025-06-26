@@ -1,6 +1,5 @@
 package com.isaiasgabriel.crud_crm.service;
 
-import com.isaiasgabriel.crud_crm.dao.EmployeeDAO;
 import com.isaiasgabriel.crud_crm.entity.Employee;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
